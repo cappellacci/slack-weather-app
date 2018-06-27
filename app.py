@@ -9,6 +9,9 @@ app = Flask(__name__)
 def home():
     return 'Hello World!'
 
+@app.route('/slack/weather', methods=['POST'])
+def weather():
+    return 'Its gon rain'
 
 if __name__ == '__main__':
     app.run(debug=True,
