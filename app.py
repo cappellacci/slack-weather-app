@@ -11,7 +11,7 @@ def home():
 
 @app.route('/slack/weather', methods=['POST'])
 def weather():
-    location = request.args["text"]
+    location = request.form["text"]
     message = 'Its gon rain in {location}'.format(location=location)
     return jsonify({
         'response_type': 'in_channel',
