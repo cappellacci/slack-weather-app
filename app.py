@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, jsonify
 
 
 app = Flask(__name__)
@@ -11,7 +11,10 @@ def home():
 
 @app.route('/slack/weather', methods=['POST'])
 def weather():
-    return 'Its gon rain'
+    return jsonify({
+        'response_type': 'in_channel',
+        'text': 'Its gon rain'
+    })
 
 if __name__ == '__main__':
     app.run(debug=True,
